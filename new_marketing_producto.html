@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prototipo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      /*height: 30%;*/
+      margin: auto;
+      min-height:200px;
+  }
+  .carousel .item {
+    height: 500px;
+  }
+  
+  .carousel-caption {
+      top: 0;
+      /*right: 30%;*/
+      bottom: auto;
+      align-content: center;
+  }
+
+  .item img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-height: 300px;
+  }
+  .top-left-text {
+    position: absolute;
+    top: 15%;
+    left: 16%;
+    background-color: green;
+  }
+
+  .top-left-price {
+    position: absolute;
+    top: 30%;
+    left: 16%;
+    background-color: black;
+    font-weight: bold;
+  }
+
+  .bottom-right-text-name {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    background-color: green;
+  }
+
+  .bottom-right-text-time {
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+    background-color: green;
+  }
+
+  div.item_incluye {
+      /*border: 1px solid black;*/
+      font-size: 18px;
+      width: auto;
+      height: auto;
+      text-align: center;      
+  }
+
+  div.item_incluye:hover{
+    background-color: black;
+    color: white;
+    transition-duration: 1s;
+  }
+
+  div.item_description {
+      border: 1px solid green;
+      font-size: 16px;
+      width: auto;
+      height: 20%;
+      text-align: left;
+      
+      padding-top: 20px;
+      padding-bottom: 10px;
+
+      margin-bottom: 8px;  
+      margin-top: 8px; 
+      border-top-width: 2px; 
+      border-bottom-width: 2px; 
+      border-left-width: 2px; 
+      border-right-width: 2px;
+   
+  }
+  
+  div.item_description:hover{
+    border-color: blue;
+    color: black;
+    transition-duration: 0.1s;
+  }
+
+  div.item_itinerario{
+    font-size: 17px;
+    text-align: left; 
+    background-color: white;
+    border-top-color: white;
+    border-bottom-color: grey;
+    border-left-color: white;
+    border-right-color: white;
+
+    border-bottom-style: dotted;
+    
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    margin-bottom: 6px;  
+    margin-top: 6px; 
+  }
+
+  div.item_itinerario:hover{
+    background-color: #f3f3ed;
+    color: black;
+    transition-duration: 0.1s;
+  }
+
+  div.polaroid {
+    width: 100%;/*LCV*/
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 0px;
+  }
+  
+  div.box_img_polaroid {/*LCV*/
+      width: inherit;/*LCV*/
+      height: inherit;/*LCV*/
+      /*display:inline-block;*/
+      border: 0px solid black;/*LCV*/
+      overflow: hidden;/*LCV*/ /* clip the excess when child gets bigger than parent */
+    }/*LCV*/
+    div.box_img_polaroid img {/*LCV*/
+      width: inherit;/*LCV*/
+      height: inherit;/*LCV*/
+      display: block;/*LCV*/
+      transition: transform .4s;/*LCV*/   /* smoother zoom */
+    }/*LCV*/
+    div.box_img_polaroid:hover img {/*LCV*/
+      transform: scale(1.3);/*LCV*/
+      transform-origin: 50% 50%;/*LCV*/
+    }/*LCV*/
+
+.form_object_style {
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.dia_format{
+    color: brown; 
+    font-size: 20px; 
+    font-weight: bold;
+    font-family:arial;
+}
+  /*@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);*/
+  .item-1, 
+.item-2, 
+.item-3 {
+  position: absolute;
+  display: block;
+  top: 2em;
+  
+  width: 60%;
+  
+  font-size: 2em;
+
+  animation-duration: 20s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.item-1{
+  animation-name: anim-1;
+}
+
+.item-2{
+  animation-name: anim-2;
+}
+
+.item-3{
+  animation-name: anim-3;
+}
+
+@keyframes anim-1 {
+  0%, 8.3% { left: -100%; opacity: 0; }
+  8.3%,25% { left: 25%; opacity: 1; }
+  33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+  0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 25%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+  0%, 66.66% { left: -100%; opacity: 0; }
+  74.96%, 91.62% { left: 25%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+
+
+.jumbotron {
+  background-image: url("img/test/04.png");
+  background-size: cover;
+}
+
+hr.new4 {
+  border: 1px solid grey;
+}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">LOGO</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Inicio</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Tours</a></li>
+        <li><a href="#">Vuelos</a></li>
+        <li><a href="#">Arma tu Paquete</a></li>
+        <li><a href="#">Nuestra Empresa</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> English Version</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- begin carousel -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">    
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="img/test/15.png" alt="Image" style="display: block;height: auto;max-width: 100%;width: 100%;height: 100%;max-height: 100%;width: 100%;">
+            <div class="carousel-caption">
+                <div id="oferta1" align="center">
+                    <p style="font-size: 30px; text-align: center;">
+                        Box : <br>Hotu Matua 650.000 p/p
+                    </p>
+                    <p style="text-align: center;">Solo por pocos días</p>
+                    <p style="text-align: center;">Consulta disponibilidad</p>
+                </div>
+                <!-- <div id="bind1">bind1</div> -->
+            </div>      
+        </div>
+
+        <div class="item">
+            <img src="img/test/03.png" alt="Image" style="display: block;height: auto;max-width: 100%;width: 100%;height: 100%;max-height: 100%;width: 100%;">
+            <div class="carousel-caption">
+                <div id="oferta1" >
+                    <p style="font-size: 30px; text-align: right">
+                        Box : <br>Hotu Matua 650.000 p/p
+                    </p>
+                    <p style="text-align: right;">Reserva Ahora</p>
+                    <p style="text-align: right;">El Box mas vendido del mes</p>
+                </div>
+                <!-- <div id="bind2">bind2</div> -->
+            </div>      
+        </div>
+    </div>
+
+   
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- end of carousel   -->
+  
+
+<div class="container-fluid">
+    <div class="tab-content">
+          <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+     <li role="presentation" class="active">
+      <a href="#description"
+       aria-controls="description"
+       role="tab"
+       data-toggle="tab"
+      >Descripción</a>
+     </li>
+     <li role="presentation">
+      <a href="#features"
+       aria-controls="features"
+       role="tab"
+       data-toggle="tab"
+      >Incluye</a>
+     </li>
+     <li role="presentation">
+      <a href="#notes"
+       aria-controls="notes"
+       role="tab"
+       data-toggle="tab"
+       >Itinerario</a>
+     </li>
+     <li role="presentation">
+      <a href="#reviews"
+       aria-controls="reviews"
+       role="tab"
+       data-toggle="tab"
+      >Qué llevar</a>
+     </li>
+    <li role="presentation">
+      <a href="#contact"
+       aria-controls="contact"
+       role="tab"
+       data-toggle="tab"
+      >Contáctanos</a>
+     </li> 
+    <li role="presentation">
+      <a href="#comprar"
+       aria-controls="comprar"
+       role="tab"
+       data-toggle="tab"
+      >Comprar este BOX</a>
+     </li>     
+    </ul>
+
+
+     <div role="tabpanel" class="tab-pane active" id="description">
+      <div class="container text-center">    
+      <h3>Descripción</h3><br>
+      <div class="row">
+        <div class="col-sm-6">
+            <img src="img/test/21.jpg" class="img-responsive" style="width:100% border-radius:50%" alt="Image">          
+        </div>
+
+
+
+        <div class="col-sm-6">
+            <div class="well item_description">
+                <p>6 días, 5 noches</p>
+            </div>
+            <div class="well item_description">
+                <p><span style="font-weight: bold;">$650.000</span> por persona</p>
+            </div>
+            <div class="well item_description">
+                <p>Disponible de Marzo a Diciembre de <span style="font-weight: bold;">2019</span></p>
+            </div>          
+            <div class="well item_description">
+                <p>Fechas Flexibles según disponibilidad</p>
+            </div>           
+            <div class="well item_description">
+                <p>Itinerario sujeto a cambios</p>
+            </div>           
+
+        </div>
+      </div>
+    </div><br>
+     </div>
+        <!-- Incluye TAB -->     
+        <div role="tabpanel" class="tab-pane top-10" id="features">
+            <div class="container text-center">    
+                <h3>Incluye</h3><br>
+                
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <div class="well item_incluye" >
+                            <p>
+                            <p class="fas fa-plane"></p>                                        
+                            <p>Pasajes aéreos ida y vuelta Santiago – Rapa Nui. vía LATAM.</p>
+                            </p>
+                          </div>
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="far fa-money-bill-alt"></p> 
+                                <p>Tasas e impuestos incluidos.</p>
+                                </p>
+                          </div>                          
+                         <!--  -->
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="fas fa-bed"></p> 
+                                <p>Opción de Hotel c/ desayuno incluido o cabaña full equipada.</p>
+                                </p>
+                          </div>                     
+                    </div>
+                    <div class="col-sm-4">
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="fas fa-map-marked"></p> 
+                                <p>Tour Half day Orongo</p>
+                                </p>
+                          </div>
+
+<!--                         <div class="well item_incluye">
+                              <p>
+                                  <ul class="fa-ul">
+                                    <li>
+                                        <i class="fas fa-map-marked">                
+                                        </i>&nbsp;&nbsp;&nbsp;&nbsp;Tour Half day Orongo
+                                    </li>
+                                  </ul>
+                              </p>
+                        </div> -->
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="far fa-credit-card"></p> 
+                                <p>Ticket ingreso al parque.</p>
+                                </p>
+                          </div>
+
+
+                        <div class="well item_incluye" >
+                                <p>
+                                <p class="fas fa-id-card"></p> 
+                                <p>Guía Local certificado.</p>
+                                </p>
+                          </div>
+<!-- 
+                        <div class="well item_incluye">                            
+                              <p>
+                                  <ul class="fa-ul">
+                                    <li>
+                                        <i class="fas fa-id-card">                
+                                        </i>&nbsp;&nbsp;&nbsp;&nbsp;Guía Local certificado
+                                    </li>
+                                  </ul>
+                              </p>                            
+                        </div> -->
+                    </div>
+                    <div class="col-sm-4">
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="fas fa-car"></p> 
+                                <p>Traslados Aeropuerto.</p>
+                                </p>
+                          </div>
+
+
+                        <!-- <div class="well item_incluye">
+                              <p>
+                                  <ul class="fa-ul">
+                                    <li>
+                                        <i class="fas fa-car">                
+                                        </i>&nbsp;&nbsp;&nbsp;&nbsp;Traslados Aeropuerto
+                                    </li>
+                                  </ul>
+                              </p>                                                       
+                        </div> -->
+<!--                         <div class="well item_incluye">
+                              <p>
+                                  <ul class="fa-ul">
+                                    <li>
+                                        <i class="fas fa-certificate">                
+                                        </i>Bienvenida con collares de flores
+                                    </li>
+                                  </ul>
+                              </p>                           
+                        </div>  -->
+                          <div class="well item_incluye" >
+                                <p>
+                                <p class="fas fa-certificate"></p> 
+                                <p>Bienvenida con collares de flores.</p>
+                                </p>
+                          </div>                                               
+                    </div>
+                     </div><!--end row -->
+                 </div><!--end container class -->
+             </div><br><!--end tab panel -->
+        
+        <!-- Itinerario TAB -->
+        <div role="tabpanel" class="tab-pane" id="notes">        
+            <div class="container text-center">    
+            <h3>Itinerario</h3><br>
+                <div class="row">
+
+                    <div class="col-md-12"> 
+                        <div class="well item_itinerario">
+                            <span class="dia_format">Día 1 - </span> <span style="color: brown; font-size: 25px;"> Bienvenida </span> 
+                            <br>
+                            Bienvenida con collares de flores y traslado a su alojamiento. 
+                        </div> 
+                        <div class="well item_itinerario">
+                          <span style="color: brown; font-size: 25px;">Día 2 - </span> <span style="color: brown; font-size: 25px;"> Tour full day Anakena </span>
+
+                          <br>
+                              Tour con guía local certificado, retiro en alojamiento para visitar los sitios de Vaihu y aldea interpretativa Puku Manu Mea, luego visitar sector de Akahanga, Rano Raraku (cantera de los Moai), Ahu Tongariki (los 15 moai), Ahu Te Pito Kura y terminar finalmente en la playa de Hanga rau o te Ariki o mas conocida como Anakena.</div>
+                        
+                        <div class="well item_itinerario">
+                          <span style="color: brown; font-size: 25px;">Día 3 - </span> <span style="color: brown; font-size: 25px;"> Tour half day Orongo </span>
+ 
+                            <br>
+                              Tour con guía local certificado, retiro en alojamiento y traslado a primera parada mirador a Hanga Roa, segunda parada mirador Rano Kau (crater), luego visitar la aldea de Orongo, y terminar recorrido en el Ahu Vinapu. </div>
+                        <div class="well item_itinerario">
+                          <span style="color: brown; font-size: 25px;">Día 4 - </span> <span style="color: brown; font-size: 25px;"> Día libre </span>  
+                        </div>
+                        <div class="well item_itinerario">
+                          <span style="color: brown; font-size: 25px;">Día 5 - </span> <span style="color: brown; font-size: 25px;"> Día libre </span>
+                          
+                        </div>
+                        <div class="well item_itinerario">
+                          <span style="color: brown; font-size: 25px;">Día 6 - </span> <span style="color: brown; font-size: 25px;"> Traslado a Aeropuerto </span>                                                
+                        </div>                                                
+                    </div>
+                    <!-- <div class="col-sm-2">  
+                      <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/>
+                    </div>                                            
+                    <div class="col-sm-2">  
+                      <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/>
+                    </div>
+                    <div class="col-sm-2">  
+                      <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/>
+                    </div>                                            
+                    <div class="col-sm-2">  
+                      <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/>
+                    </div>                    
+                    <div class="col-sm-4">  
+                      <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/>
+                    </div> -->                                        
+                </div>
+                               
+            </div><br>
+        </div>
+
+        <!-- Qué llevar TAB -->
+        <div role="tabpanel" class="tab-pane" id="reviews">
+            <div class="container text-center">    
+            <h3>Qué llevar</h3><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="img/test/21.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <p>Vuela con nosotros</p>
+                    </div>
+                    <div class="col-sm-6"> 
+                        <img src="img/test/26.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <p>Astronomia en la Isla</p>    
+                      </div>
+                </div>
+            </div><br>
+        </div>
+        
+        <!-- Contáctanos TAB -->
+        <div role="tabpanel" class="tab-pane" id="contact">
+            <div class="container text-center">    
+                <h3>Contáctenos</h3><br>    
+                ¿Cómo llegó a nosotros?            
+                <section style="align-content: center;">
+                    <div class="row">
+                        <div class="col-md-12 mb-md-0 mb-5">
+                            <form id="contact-form" name="contact-form" action="mail.php" method="POST">              
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="name" name="name" placeholder="Nombre" class="form-control form_object_style">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="email" name="email" class="form-control form_object_style" placeholder="Correo electrónico">
+                                        </div>
+                                    </div>            
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="md-form mb-0">
+                                            <input type="text" id="subject" name="subject" class="form-control form_object_style" placeholder="Asunto: Consultar Box Rapa Nui Soñado"/>                         
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12" >
+                                        <div class="md-form">
+                                            <textarea type="text" id="message" name="message" rows="4" class="form-control md-textarea form_object_style" placeholder="Su Mensaje"></textarea>                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="text-center text-md-left">
+                                <a class="btn btn-primary btn-lg" onclick="#" style="margin-top: 25px">Enviar Mensaje</a>
+                            </div>
+                            <div class="status"></div>
+                        </div>
+                    </div>
+
+                    <!-- Iconografia de contacto -->
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-md-4 text-center">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                    <p style="margin-top: 20px;">Rapa Nui s/n, Isla de Pascua, Chile</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                    <p  style="margin-top: 20px;">+ 01 234 567 89</p>
+                                </li>
+                            </ul>
+                        </div>  
+                        <div class="col-md-4 text-center">
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                    <p  style="margin-top: 20px;">contacto@hanitraveltour.cl</p>
+                                </li>
+                            </ul>
+                        </div>                                        
+                    </div>
+                </section> 
+            </div><br><!-- END container for TAB -->
+        </div><!--END Contactanos TAB -->
+
+        <!-- Comprar TAB -->
+        <div role="tabpanel" class="tab-pane" id="comprar">
+            <div class="container text-center">    
+            <h3>AQUI -> el boton de pago configurado con el precio del BOX</h3><br>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="img/test/22.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <p>Vuela con nosotros</p>
+                    </div>
+                    <div class="col-sm-6"> 
+                        <img src="img/test/26.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <p>Astronomia en la Isla</p>    
+                      </div>
+                </div>
+            </div><br>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+
+
+<!-- <div class="container text-center">    
+  <h3>Promociones a Grupos y empresas</h3><br>
+  <div class="row">
+    <div class="col-sm-8">
+      <img src="img/test/21.jpg" class="img-responsive" style="width:100%" alt="Image">
+      <p>Organiza tu paseo de fin de año</p>
+    </div>
+    <div class="col-sm-4">
+      <div class="well">
+       <p>Aereos</p>
+      </div>
+      <div class="well">
+       <p>Alojamientos</p>
+      </div>
+      <div class="well">
+       <p>Tours</p>
+      </div>
+      <div class="well">
+       <p>Show</p>
+      </div>
+      <div class="well">
+       <p>Cavernas</p>
+      </div>
+
+    </div>
+  </div> 
+
+</div><br>-->
+<!--       <div class="polaroid">
+      <img src="img/test/11.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Paquetes</p>
+      </div> -->
+<hr class="new4">
+      <div class="container text-center">    
+            <h3>También podría interesarte</h3><br>
+                <div class="row">
+                    <div class="col-sm-2">
+                    <!-- <div class="view overlay zoom">  -->
+                     <div class="polaroid">
+                        <div class="box_img_polaroid"><!-- LCV -->
+                          <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Box Explora</p>
+                      </div>
+                    </div>
+                    <div class="col-sm-2"> 
+                      <div class="polaroid">                         
+                        <div class="box_img_polaroid">   <!-- LCV -->                     
+                          <img src="img/test/22.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Viaje de Estudios</p><!-- LCV -->
+                      </div>
+                    </div>    
+                    <div class="col-sm-2"> 
+                      <div class="polaroid">
+                        <div class="box_img_polaroid"><!-- LCV -->
+                          <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Rapa Nui Soñado</p><!-- LCV -->
+                      </div>
+                    </div>
+                    <div class="col-sm-2"> 
+                      <div class="polaroid"> 
+                        <div class="box_img_polaroid"><!-- LCV -->                    
+                          <img src="img/test/22.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Box Hotu Matua</p><!-- LCV -->
+                      </div>
+                    </div>   
+                    <div class="col-sm-2"> 
+                     <div class="polaroid">
+                        <div class="box_img_polaroid"><!-- LCV -->                 
+                          <img src="img/test/21.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Escapadas</p><!-- LCV -->
+                      </div>
+                    </div>
+                    <div class="col-sm-2"> 
+                      <div class="polaroid"> 
+                        <div class="box_img_polaroid"><!-- LCV -->               
+                          <img src="img/test/22.jpg" class="img-responsive"  alt="Image"/><!-- LCV -->
+                        </div><!-- LCV -->
+                        <p>Box Heukenua</p><!-- LCV -->
+                      </div>
+                    </div>                               
+                </div>
+            </div><br>
+<!--<d iv class="container text-center">    
+  <h3>También podría interesarte</h3><br>
+<div class="row" style="margin: 20px;">
+    <div class="col-sm-2">
+      <div class="polaroid">
+      <img src="img/test/11.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Paquetes</p>
+      </div>
+    </div>
+    <div class="col-sm-2"> 
+      <div class="polaroid">
+      <img src="img/test/10.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Tours</p>    
+      </div>
+    </div>
+    <div class="col-sm-2"> 
+      <div class="polaroid">
+      <img src="img/test/09.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Cavernas</p>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="polaroid">
+      <img src="img/test/08.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Transporte</p>
+      </div> 
+    </div> 
+    <div class="col-sm-2"> 
+      <div class="polaroid">
+      <img src="img/test/07.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Show</p>
+      </div>
+    </div>
+    <div class="col-sm-2"> 
+      <div class="polaroid">
+      <img src="img/test/11.png" class="img-responsive" style="width:100%" alt="Image">
+      <p>Buceo</p>
+      </div> 
+    </div> 
+  </div>
+</div> -->
+<br>
+<footer class="container-fluid padding">
+    <div class="row text-center">
+        <div class="col-md-3">
+            <img src="img/test/logo_resized.png">
+            <hr class="light">
+          
+            <p>555-5555-555</p>
+            <p>contacto@hanitraveltour.com</p>
+            <p>Rapa Nui sin Numero</p>
+            <p>Santiago, Chile</p>
+        </div>
+    
+    
+        <div class="col-md-3">            
+            <hr class="light">
+            <h5>Horario de Atencion</h5>
+            <hr class="light">
+            <p>Lunes a Viernes</p>
+            <p>Sabados y Domingos</p>
+            <p>Festivos </p>
+            <p>Santiago, Chile</p>
+        </div>
+
+        <div class="col-md-3">            
+            <hr class="light">
+            <h5>Links de interes</h5>
+            <hr class="light">
+            <p>Viva Rapa Nui</p>
+            <p>Mas Lugares</p>
+            <p>Etc</p>
+            <p>ETC</p>
+        </div>
+        <div class="col-md-3">            
+            <hr class="light">
+            <h5>Ultimas cosas para mirar</h5>
+            <hr class="light">
+            <p>Viva Rapa Nui</p>
+            <p>Mas Lugares</p>
+            <p>Etc</p>
+            <p>ETC</p>
+        </div>        
+    </div>      
+</footer>
+
+</body>
+</html>
